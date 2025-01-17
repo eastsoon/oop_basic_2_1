@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.time.DayOfWeek.MONDAY;
@@ -46,9 +47,6 @@ public class ReservationServiceTest {
         Mockito.when(movieDAO.selectMovie(movieId))
                 .thenReturn(new Movie(movieId, "한신", 120, Money.wons(10000)));
 
-        Mockito.when(discountPolicyDAO.selectDiscountPolicy(movieId))
-                .thenReturn(new DiscountPolicy(policyId, movieId, AMOUNT_POLICY, Money.wons(1000), null));
-
         Mockito.when(discountConditionDAO.selectDiscountConditions(policyId))
                 .thenReturn(List.of(
                         new DiscountCondition(1L, policyId, SEQUENCE_CONDITION, null, null, null, 1),
@@ -76,9 +74,6 @@ public class ReservationServiceTest {
 
         Mockito.when(movieDAO.selectMovie(movieId))
                 .thenReturn(new Movie(movieId, "한신", 120, Money.wons(10000)));
-
-        Mockito.when(discountPolicyDAO.selectDiscountPolicy(movieId))
-                .thenReturn(new DiscountPolicy(policyId, movieId, PERCENT_POLICY, null, 0.1));
 
         Mockito.when(discountConditionDAO.selectDiscountConditions(policyId))
                 .thenReturn(List.of(

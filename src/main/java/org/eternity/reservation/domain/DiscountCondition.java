@@ -16,14 +16,13 @@ public class DiscountCondition {
 
     public boolean isSatisfiedBy(Screening screening) {
         if (isPeriodCondition()){
-            return screening.isPlayedIn(this.dayOfWeek,
-                    this.startTime,
-                    this.endTime);
+            return screening.isPlayedIn(dayOfWeek,
+                    startTime,
+                    endTime);
         } else if(isSequenceCondition()){
-            return this.sequence.equals(screening.getSequence());
+            return sequence.equals(screening.getSequence());
         } else if (isCombineCondition()){
-            return (this.sequence.equals(screening.getSequence())) &&
-                    (screening.isPlayedIn(this.dayOfWeek, this.startTime, this.endTime));
+            return (screening.isPlayedIn(dayOfWeek, startTime, endTime)) && sequence.equals(screening.getSequence());
         }
 
         return false;

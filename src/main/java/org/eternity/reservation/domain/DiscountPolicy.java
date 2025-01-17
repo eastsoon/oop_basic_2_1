@@ -2,6 +2,9 @@ package org.eternity.reservation.domain;
 
 import org.eternity.generic.Money;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DiscountPolicy {
     public enum PolicyType { PERCENT_POLICY, AMOUNT_POLICY }
 
@@ -10,12 +13,13 @@ public class DiscountPolicy {
     private PolicyType policyType;
     private Money amount;
     private Double percent;
+    private List<DiscountCondition> discountConditions;
 
     public Money calculateDiscount(Movie movie) {
         if(isAmountPolicy()){
-            return this.amount;
+            return amount;
         } else if (isPercentPolicy()){
-            return movie.getFee().times(this.percent);
+            return movie.getFee().times(percent);
         }
 
         return Money.ZERO;
@@ -25,15 +29,25 @@ public class DiscountPolicy {
     }
 
     public DiscountPolicy(Long movieId, PolicyType policyType, Money amount, Double percent) {
-        this(null, movieId, policyType, amount, percent);
+        this(null, movieId, policyType, amount, percent, new ArrayList<>());
     }
 
-    public DiscountPolicy(Long id, Long movieId, PolicyType policyType, Money amount, Double percent) {
+    public DiscountPolicy(Long id, Long movieId, PolicyType policyType, Money amount, Double percent, List<DiscountCondition> discountConditions) {
         this.id = id;
         this.movieId = movieId;
         this.policyType = policyType;
         this.amount = amount;
         this.percent = percent;
+        this.discountConditions = discountConditions;
+    }
+
+    public boolean findDiscountCondition(Screening screening){
+        for(DiscountCondition discountCondition : discountConditions){
+            if(discountCondition.isSatisfiedBy(screening)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public Long getId() {
