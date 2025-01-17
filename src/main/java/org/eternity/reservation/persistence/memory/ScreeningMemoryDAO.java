@@ -1,7 +1,7 @@
-package org.program.reservation.persistence.memory;
+package org.eternity.reservation.persistence.memory;
 
-import org.program.reservation.domain.Screening;
-import org.program.reservation.persistence.ScreeningDAO;
+import org.eternity.reservation.domain.Screening;
+import org.eternity.reservation.persistence.ScreeningDAO;
 
 public class ScreeningMemoryDAO extends InMemoryDAO<Screening> implements ScreeningDAO {
     @Override

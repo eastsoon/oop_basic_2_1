@@ -1,6 +1,6 @@
-package org.program.reservation.persistence;
+package org.eternity.reservation.persistence;
 
-import org.program.reservation.domain.DiscountCondition;
+import org.eternity.reservation.domain.DiscountCondition;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package org.program.reservation.persistence;
+package org.eternity.reservation.persistence;
 
-import org.program.reservation.domain.Screening;
+import org.eternity.reservation.domain.Screening;
 
 public interface ScreeningDAO {
     Screening selectScreening(Long screeningId);

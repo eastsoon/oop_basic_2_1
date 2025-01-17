@@ -1,7 +1,7 @@
-package org.program.reservation.persistence.memory;
+package org.eternity.reservation.persistence.memory;
 
-import org.program.reservation.domain.Movie;
-import org.program.reservation.persistence.MovieDAO;
+import org.eternity.reservation.domain.Movie;
+import org.eternity.reservation.persistence.MovieDAO;
 
 public class MovieMemoryDAO extends InMemoryDAO<Movie> implements MovieDAO {
     @Override

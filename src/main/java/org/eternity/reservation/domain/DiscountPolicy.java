@@ -1,6 +1,6 @@
-package org.program.reservation.domain;
+package org.eternity.reservation.domain;
 
-import org.program.generic.Money;
+import org.eternity.generic.Money;
 
 public class DiscountPolicy {
     public enum PolicyType { PERCENT_POLICY, AMOUNT_POLICY }

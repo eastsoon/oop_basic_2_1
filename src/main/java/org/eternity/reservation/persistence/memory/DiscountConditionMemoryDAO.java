@@ -1,7 +1,7 @@
-package org.program.reservation.persistence.memory;
+package org.eternity.reservation.persistence.memory;
 
-import org.program.reservation.domain.DiscountCondition;
-import org.program.reservation.persistence.DiscountConditionDAO;
+import org.eternity.reservation.domain.DiscountCondition;
+import org.eternity.reservation.persistence.DiscountConditionDAO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.program.reservation.domain;
+package org.eternity.reservation.domain;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

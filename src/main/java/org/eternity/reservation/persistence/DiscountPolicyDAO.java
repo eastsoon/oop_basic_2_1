@@ -1,6 +1,6 @@
-package org.program.reservation.persistence;
+package org.eternity.reservation.persistence;
 
-import org.program.reservation.domain.DiscountPolicy;
+import org.eternity.reservation.domain.DiscountPolicy;
 
 public interface DiscountPolicyDAO {
     DiscountPolicy selectDiscountPolicy(Long movieId);

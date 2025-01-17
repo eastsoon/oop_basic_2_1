@@ -1,8 +1,8 @@
-package org.program.reservation.service;
+package org.eternity.reservation.service;
 
-import org.program.generic.Money;
-import org.program.reservation.domain.*;
-import org.program.reservation.persistence.*;
+import org.eternity.generic.Money;
+import org.eternity.reservation.domain.*;
+import org.eternity.reservation.persistence.*;
 
 import java.util.List;
 
@@ -76,6 +76,6 @@ public class ReservationService {
     }
 
     private Reservation makeReservation(Long customerId, Long screeningId, Integer audienceCount, Money fee){
-        return new Reservation(customerId, screeningId, audienceCount, fee);
+        return new Reservation(customerId, screeningId, audienceCount, fee.times(audienceCount));
     }
 }

@@ -1,7 +1,7 @@
-package org.program.reservation.persistence.memory;
+package org.eternity.reservation.persistence.memory;
 
-import org.program.reservation.domain.DiscountPolicy;
-import org.program.reservation.persistence.DiscountPolicyDAO;
+import org.eternity.reservation.domain.DiscountPolicy;
+import org.eternity.reservation.persistence.DiscountPolicyDAO;
 
 public class DiscountPolicyMemoryDAO extends InMemoryDAO<DiscountPolicy> implements DiscountPolicyDAO {
     @Override

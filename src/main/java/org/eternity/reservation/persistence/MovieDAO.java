@@ -1,6 +1,6 @@
-package org.program.reservation.persistence;
+package org.eternity.reservation.persistence;
 
-import org.program.reservation.domain.Movie;
+import org.eternity.reservation.domain.Movie;
 
 public interface MovieDAO {
     Movie selectMovie(Long movieId);

@@ -1,7 +1,7 @@
-package org.program.reservation.persistence.memory;
+package org.eternity.reservation.persistence.memory;
 
-import org.program.reservation.domain.Reservation;
-import org.program.reservation.persistence.ReservationDAO;
+import org.eternity.reservation.domain.Reservation;
+import org.eternity.reservation.persistence.ReservationDAO;
 
 public class ReservationMemoryDAO extends InMemoryDAO<Reservation> implements ReservationDAO {
     @Override

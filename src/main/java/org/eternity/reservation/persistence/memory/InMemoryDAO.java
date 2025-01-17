@@ -1,4 +1,4 @@
-package org.program.reservation.persistence.memory;
+package org.eternity.reservation.persistence.memory;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
