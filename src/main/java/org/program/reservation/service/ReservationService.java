@@ -67,7 +67,7 @@ public class ReservationService {
 
     private Money calculateDiscount(DiscountPolicy discountPolicy, Movie movie){
         if(discountPolicy.isAmountPolicy()){
-            return discountPolicy.getAmount()
+            return discountPolicy.getAmount();
         } else if (discountPolicy.isPercentPolicy()) {
             return movie.getFee().times(discountPolicy.getPercent());
         }
