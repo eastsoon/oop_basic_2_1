@@ -11,6 +11,16 @@ public class DiscountPolicy {
     private Money amount;
     private Double percent;
 
+    public Money calculateDiscount(Movie movie) {
+        if(isAmountPolicy()){
+            return this.amount;
+        } else if (isPercentPolicy()){
+            return movie.getFee().times(this.percent);
+        }
+
+        return Money.ZERO;
+    }
+
     public DiscountPolicy(){
     }
 
@@ -42,33 +52,33 @@ public class DiscountPolicy {
         this.movieId = movieId;
     }
 
-    public boolean isAmountPolicy() {
+    private boolean isAmountPolicy() {
         return PolicyType.AMOUNT_POLICY.equals(policyType);
     }
 
-    public boolean isPercentPolicy() {
+    private boolean isPercentPolicy() {
         return PolicyType.PERCENT_POLICY.equals(policyType);
     }
 
-    public PolicyType getPolicyType() {
-        return policyType;
-    }
+//    public PolicyType getPolicyType() {
+//        return policyType;
+//    }
 
     public void setPolicyType(PolicyType policyType) {
         this.policyType = policyType;
     }
 
-    public Money getAmount() {
-        return amount;
-    }
+//    public Money getAmount() {
+//        return amount;
+//    }
 
     public void setAmount(Money amount) {
         this.amount = amount;
     }
 
-    public Double getPercent() {
-        return percent;
-    }
+//    public Double getPercent() {
+//        return percent;
+//    }
 
     public void setPercent(Double percent) {
         this.percent = percent;

@@ -14,6 +14,21 @@ public class DiscountCondition {
     private LocalTime endTime;
     private Integer sequence;
 
+    public boolean isSatisfiedBy(Screening screening) {
+        if (isPeriodCondition()){
+            return screening.isPlayedIn(this.dayOfWeek,
+                    this.startTime,
+                    this.endTime);
+        } else if(isSequenceCondition()){
+            return this.sequence.equals(screening.getSequence());
+        } else if (isCombineCondition()){
+            return (this.sequence.equals(screening.getSequence())) &&
+                    (screening.isPlayedIn(this.dayOfWeek, this.startTime, this.endTime));
+        }
+
+        return false;
+    }
+
     public DiscountCondition(){
     }
 
@@ -47,16 +62,16 @@ public class DiscountCondition {
         this.policyId = policyId;
     }
 
-    public boolean isPeriodCondition() {
+    private boolean isPeriodCondition() {
         return ConditionType.PERIOD_CONDITION.equals(conditionType);
 //        return conditionType == ConditionType.PERIOD_CONDITION;
     }
 
-    public boolean isSequenceCondition() {
+    private boolean isSequenceCondition() {
         return ConditionType.SEQUENCE_CONDITION.equals(conditionType);
     }
 
-    public boolean isCombineCondition() {
+    private boolean isCombineCondition() {
         return ConditionType.COMBINE_CONDITION.equals(conditionType);
     }
 
@@ -68,33 +83,33 @@ public class DiscountCondition {
         this.conditionType = conditionType;
     }
 
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
-    }
+//    public DayOfWeek getDayOfWeek() {
+//        return dayOfWeek;
+//    }
 
     public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public LocalTime getStartTime() {
-        return startTime;
-    }
+//    public LocalTime getStartTime() {
+//        return startTime;
+//    }
 
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime() {
-        return endTime;
-    }
+//    public LocalTime getEndTime() {
+//        return endTime;
+//    }
 
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 
-    public Integer getSequence() {
-        return sequence;
-    }
+//    public Integer getSequence() {
+//        return sequence;
+//    }
 
     public void setSequence(Integer sequence) {
         this.sequence = sequence;
